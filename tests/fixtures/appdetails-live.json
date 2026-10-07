@@ -1,0 +1,36 @@
+{
+  "413150": {
+    "success": true,
+    "data": {
+      "steam_appid": 413150,
+      "type": "game",
+      "is_free": false,
+      "price_overview": {
+        "currency": "USD",
+        "initial": 1499,
+        "final": 1049,
+        "discount_percent": 30,
+        "initial_formatted": "$14.99",
+        "final_formatted": "$10.49"
+      },
+      "release_date": {
+        "coming_soon": false,
+        "date": "Feb 26, 2016"
+      },
+      "genres": [
+        {
+          "id": "23",
+          "description": "Indie"
+        },
+        {
+          "id": "3",
+          "description": "RPG"
+        },
+        {
+          "id": "28",
+          "description": "Simulation"
+        }
+      ]
+    }
+  }
+}
