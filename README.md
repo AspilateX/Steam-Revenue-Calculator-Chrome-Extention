@@ -4,7 +4,7 @@ A Chrome extension that shows estimated revenue for paid games directly on Steam
 
 ## Features
 
-- **Gross**, **Net**, and an estimated range shown as full amounts.
+- **Gross** and **Net** as full amounts, with a compact min–max range.
 - Details with reviews, price, estimated copies sold, and a visual breakdown of regional pricing, discounts, refunds, taxes, and Steam's cut.
 - Fine-tune the assumptions using the gear icon, save them for all games, or reset to defaults.
 - English and Russian interfaces. No account or API key required.

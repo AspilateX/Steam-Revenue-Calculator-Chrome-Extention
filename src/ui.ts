@@ -49,6 +49,7 @@ export function renderRevenue(host: HTMLElement, state: UiState, model: ModelCon
   const t = copy[language];
   const locale = language === 'ru' ? 'ru-RU' : 'en-US';
   const money = (cents: number, whole = false) => new Intl.NumberFormat(locale, { style: 'currency', currency: 'USD', currencyDisplay: 'code', minimumFractionDigits: whole ? 0 : 2, maximumFractionDigits: whole ? 0 : 2 }).format(cents / 100);
+  const rangeMoney = new Intl.NumberFormat(locale, { style: 'currency', currency: 'USD', currencyDisplay: 'code', notation: 'compact', maximumFractionDigits: 1 });
   const number = (v: number) => new Intl.NumberFormat(locale, { maximumFractionDigits: 1 }).format(v);
   const style = el('style', styles);
   const frame = el('div', undefined, 'frame');
@@ -74,7 +75,7 @@ export function renderRevenue(host: HTMLElement, state: UiState, model: ModelCon
   ] as const) {
     const row = el('div', undefined, 'amount');
     row.append(el('span', label), el('strong', `≈ ${money(amount, true)}`));
-    section.append(row, el('p', `${money(low, true)} – ${money(high, true)}`, 'range'));
+    section.append(row, el('p', `${rangeMoney.format(low / 100)} – ${rangeMoney.format(high / 100)}`, 'range'));
   }
   const warningLabels = { 'small-sample': t.small, 'early-access': t.early, stale: t.stale, page: t.fallback };
   for (const warning of result.warnings) section.append(el('p', warningLabels[warning], 'warning'));

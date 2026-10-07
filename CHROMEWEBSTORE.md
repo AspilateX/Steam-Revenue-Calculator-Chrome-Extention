@@ -99,6 +99,7 @@ The extension processes and stores public website content and estimation setting
 
 | Version | Date | Changes | Status |
 |---|---|---|---|
+| 1.0.1 | 2026-10-07 | Compact min–max ranges alongside full Gross/Net amounts. | GitHub release; Web Store not submitted |
 | 1.0.0 | 2026-10-07 | First GitHub release: full dollar amounts, readable headings/ranges, concise installation guide and release ZIP. | GitHub release; Web Store not submitted |
 | 0.2.1 | 2026-10-07 | Keep the estimate at the bottom of upper game metadata, below publisher and any later-added rows, before tags. | Draft |
 | 0.2.0 | 2026-10-07 | Concise Details, gear settings, deduction bar, spacing; default formula matches Steam Revenue Calculator; migration from v1. | Draft |

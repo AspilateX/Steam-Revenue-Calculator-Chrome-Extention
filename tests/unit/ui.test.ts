@@ -7,11 +7,12 @@ let host: HTMLElement;
 beforeEach(() => { document.body.replaceChildren(); host = document.createElement('div'); document.body.append(host); });
 
 describe('inline detail and validation', () => {
-  it.each(['en', 'ru'] as const)('shows full amounts rounded to dollars in %s', language => {
+  it.each(['en', 'ru'] as const)('shows full totals and compact ranges in %s', language => {
     renderRevenue(host, { status: 'ready', facts: game() }, { ...DEFAULT_MODEL }, language, vi.fn());
     const expected = new Intl.NumberFormat(language === 'ru' ? 'ru-RU' : 'en-US', { style: 'currency', currency: 'USD', currencyDisplay: 'code', minimumFractionDigits: 0, maximumFractionDigits: 0 });
+    const compact = new Intl.NumberFormat(language === 'ru' ? 'ru-RU' : 'en-US', { style: 'currency', currency: 'USD', currencyDisplay: 'code', notation: 'compact', maximumFractionDigits: 1 });
     expect(host.shadowRoot!.querySelector('.amount strong')!.textContent).toBe(`≈ ${expected.format(40000)}`);
-    expect(host.shadowRoot!.querySelector('.range')!.textContent).toBe(`${expected.format(40000)} – ${expected.format(120000)}`);
+    expect(host.shadowRoot!.querySelector('.range')!.textContent).toBe(`${compact.format(40000)} – ${compact.format(120000)}`);
   });
   it('keeps concise details and settings behind a gear', () => {
     renderRevenue(host, { status: 'ready', facts: game() }, { ...DEFAULT_MODEL }, 'en', vi.fn());

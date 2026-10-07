@@ -1,10 +1,10 @@
-# Verification — 1.0.0
+# Verification — 1.0.1
 
 Checked October 7, 2026 with Node 24.19.0 on Windows and Playwright Chromium 153.0.8010.12.
 
 ## Automated checks
 
-- TypeScript strict check passed. Main amounts and min–max use full USD values rounded to dollars; the title and ranges use 12px text, labels 13px and primary amounts 18px.
+- TypeScript strict check passed. Main amounts use full USD values rounded to dollars; min–max uses compact USD notation; the title and ranges use 12px text, labels 13px and primary amounts 18px.
 - Vitest: 72 tests passed in five files, including the reference homepage result to cents, all multiplier boundaries, additive deductions, settings migration, invalid totals, input validation, cache/retry behavior and UI controls.
 - Playwright: eleven unpacked-extension browser tests passed. They cover English/Russian rendering, gear settings, publisher without a recognized link, later metadata above the block without refetching, save/reset without refetch, keyboard details, full billion-dollar amounts fitting 366px and 280px English/Russian columns, missing data, late DOM/navigation, remount, offline fallback, unsupported products, age gates and cache after a browser/worker restart.
 - Production build and ZIP passed. Manifest V3, only storage and Steam Store host access; executable code and assets are bundled locally.
@@ -18,7 +18,7 @@ Its homepage example (1,540 reviews, $14.99) is reproduced: gross $831,045.60; n
 
 ## Live Steam checks
 
-A fresh Chromium profile ran the production unpacked build with actual Steam requests and no fetch mocks.
+For version 1.0.0, a fresh Chromium profile ran the production unpacked build with actual Steam requests and no fetch mocks.
 
 | Page | Result |
 |---|---|
