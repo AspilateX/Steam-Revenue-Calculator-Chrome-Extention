@@ -5,7 +5,7 @@ A Chrome extension that shows estimated revenue for paid games directly on Steam
 <p align="center">
   <img src="docs/images/screenshot-ce66c1bb.png"
        alt="Steam Revenue Estimate on a Steam game page"
-       width="200">
+       width="400">
 </p>
 
 ## Features
