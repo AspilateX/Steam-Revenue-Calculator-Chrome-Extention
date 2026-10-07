@@ -1,42 +1,31 @@
 # Steam Revenue Estimate
 
-Расширение для Chrome: показывает приблизительную выручку платной игры прямо на странице Steam, под разработчиком и издателем. Все суммы — в USD.
+A Chrome extension that shows estimated revenue for paid games directly on Steam, below the developer and publisher. All amounts are in USD.
 
-## Что умеет
+## Features
 
-- Показывает **Gross**, **Net** и диапазон оценки полными суммами.
-- В Details — отзывы, цена, оценка продаж и цветная полоса вычитаний: региональные цены, скидки, возвраты, налоги и комиссия Steam.
-- В шестерёнке — тонкая настройка коэффициентов, сохранение для всех игр и сброс.
-- Поддерживает русский и английский интерфейс. Работает без аккаунта и API-ключа.
+- **Gross**, **Net**, and an estimated range shown as full amounts.
+- Details with reviews, price, estimated copies sold, and a visual breakdown of regional pricing, discounts, refunds, taxes, and Steam's cut.
+- Fine-tune the assumptions using the gear icon, save them for all games, or reset to defaults.
+- English and Russian interfaces. No account or API key required.
 
-## Установка
+## Installation
 
-1. Скачайте ZIP расширения из [последнего релиза](https://github.com/AspilateX/Steam-Revenue-Calculator-Chrome-Extention/releases/latest) и распакуйте в постоянную папку.
-2. Откройте `chrome://extensions` и включите **Режим разработчика**.
-3. Нажмите **Загрузить распакованное расширение** и выберите папку с `manifest.json`.
-4. Откройте или обновите страницу платной игры в Steam.
+1. Download the extension ZIP from the [latest release](https://github.com/AspilateX/Steam-Revenue-Calculator-Chrome-Extention/releases/latest) and extract it to a permanent folder.
+2. Open `chrome://extensions` and enable **Developer mode**.
+3. Click **Load unpacked** and select the folder containing `manifest.json`.
+4. Open or refresh a paid game's Steam page.
 
-**Включение и выключение:** используйте переключатель на карточке расширения в `chrome://extensions`, затем обновите страницу Steam.
+**Enable or disable:** use the toggle on the extension's card in `chrome://extensions`, then refresh the Steam page.
 
-**Обновление:** скачайте новый ZIP, замените файлы в той же папке, нажмите кнопку перезагрузки на карточке расширения в `chrome://extensions` и обновите страницу Steam. Сохранённые настройки останутся.
+**Update:** download the new ZIP, replace the files in the same folder, click the reload button on the extension's card in `chrome://extensions`, and refresh the Steam page. Your saved settings will stay.
 
-## Как считается
+## How it works
 
-Метод [Boxleiter](https://greyaliengames.com/blog/how-to-estimate-how-many-sales-a-steam-game-has-made/): число отзывов × множитель ≈ проданные копии. По умолчанию множитель зависит от количества отзывов, а поправки совпадают с [Steam Revenue Calculator](https://steam-revenue-calculator.com/).
+The [Boxleiter method](https://greyaliengames.com/blog/how-to-estimate-how-many-sales-a-steam-game-has-made/) estimates copies sold as reviews × a multiplier. By default, the multiplier depends on the review count, and the adjustments match [Steam Revenue Calculator](https://steam-revenue-calculator.com/).
 
-**Gross** = копии × обычная цена в США. Из него вычитаются 9% на региональные цены, 20% на скидки и 12% на возвраты; из остатка — 20% на налоги и 30% комиссии Steam. **Net** по умолчанию равен 29,5% Gross. Все коэффициенты можно изменить.
+**Gross** = estimated copies × the regular US price. Regional pricing (9%), discounts (20%), and refunds (12%) are deducted from Gross; taxes (20%) and Steam's cut (30%) are deducted from the remaining balance. With default settings, **Net** is 29.5% of Gross. All assumptions can be adjusted.
 
-Это приблизительная оценка, а Net — не прибыль. F2P, DLC, демо и невышедшие игры не оцениваются. [Подробнее о методике](docs/methodology.md).
+These are approximate estimates, and Net is not profit. Free-to-play games, DLC, demos, and unreleased games are excluded. [More about the method](docs/methodology.md).
 
-## Для разработки
-
-Node.js 24.15+ (или 22.22.2+), npm.
-
-```sh
-npm ci
-npm run dev
-```
-
-Сборка: `npm run build` → `.output/chrome-mv3`. Архив: `npm run zip`. Проверки: `npx playwright install chromium`, затем `npm run check`.
-
-Лицензия: [MIT](LICENSE). [Использование данных](docs/privacy.md).
+[MIT license](LICENSE). [Privacy and data use](docs/privacy.md).
